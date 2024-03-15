@@ -1,0 +1,512 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/ThreadMetalPlate.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/BrushedAluminium.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/plants/protos/FlowerPot.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/buildings/protos/TheThreeTowers.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/advertising_board/protos/AdvertisingBoard.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/factory/manhole/protos/SquareManhole.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/balls/protos/RobocupSoccerBall.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.019998664192794915 0.0005000707905775657 -0.9997998816561784 3.091602655339646
+  position 8.740472621972403 -0.0025148021070025423 3.0494099042066325
+}
+TexturedBackground {
+  luminosity 2
+  skyColor [
+    1 1 1
+  ]
+}
+TexturedBackgroundLight {
+  texture "noon_park_empty"
+  luminosity 1.2
+  castShadows FALSE
+}
+RectangleArena {
+  rotation 0 1 0 4.692820414042842e-06
+  floorSize 10 10
+  floorTileSize 1.4 1.4
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+  wallThickness 0.1
+  wallAppearance BrushedAluminium {
+    colorOverride 0 0 0
+  }
+}
+TheThreeTowers {
+  translation -10 0 0
+}
+DEF robot1 Robot {
+  translation 0 0 1.59
+  children [
+    Solid {
+      children [
+        Solid {
+          children [
+            TouchSensor {
+            }
+            Shape {
+              appearance PBRAppearance {
+                baseColorMap ImageTexture {
+                  url [
+                    "../../../Downloads/Screenshot_9.jpg"
+                  ]
+                  filtering 3
+                }
+                roughness 1
+                roughnessMap ImageTexture {
+                  url [
+                    "../../../Downloads/Screenshot_9.jpg"
+                  ]
+                  filtering 1
+                }
+                metalness 0
+                textureTransform TextureTransform {
+                }
+              }
+              geometry Box {
+                size 0.05 0.05 3.2
+              }
+            }
+          ]
+        }
+      ]
+    }
+    SliderJoint {
+      jointParameters JointParameters {
+        position 2.7755575615628914e-17
+      }
+      device [
+        LinearMotor {
+          name "linear1"
+          maxVelocity 15
+          maxPosition 3
+        }
+        PositionSensor {
+          name "elev_pos1"
+        }
+      ]
+      endPoint Solid {
+        translation 0.33 0 -1.09
+        children [
+          DEF touch_elev Solid {
+            translation 0 -0.28 0.5
+            children [
+              TouchSensor {
+                name "touch_sensor1"
+                boundingObject Box {
+                  size 0.1 0.2 0.03
+                }
+              }
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0 0
+                }
+                geometry Box {
+                  size 0.1 0.2 0.02
+                }
+              }
+            ]
+            name "solid(1)"
+          }
+          DEF touch_elev2 Solid {
+            translation 0.2 -0.28 0.5
+            children [
+              TouchSensor {
+                name "touch_sensor2"
+                boundingObject Box {
+                  size 0.1 0.2 0.02
+                }
+              }
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0 0
+                }
+                geometry Box {
+                  size 0.1 0.2 0.02
+                }
+              }
+            ]
+            name "solid(2)"
+          }
+          DEF touch_elev3 Solid {
+            translation -0.2 -0.28 0.5
+            children [
+              TouchSensor {
+                name "touch_sensor3"
+                boundingObject Box {
+                  size 0.1 0.2 0.02
+                }
+              }
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0 0
+                }
+                geometry Box {
+                  size 0.1 0.2 0.02
+                }
+              }
+            ]
+            name "solid(3)"
+          }
+          LED {
+            translation 0.29 0 0.53
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.623529 0.780392 0.780392
+                  metalness 0.1
+                  emissiveIntensity 10
+                }
+                geometry Capsule {
+                  bottom FALSE
+                  height 0.06
+                  radius 0.06
+                }
+              }
+            ]
+            name "led1"
+            recognitionColors [
+              0 1 0
+              1 0 0
+            ]
+            color [
+              0 1 0
+              1 0 0
+            ]
+          }
+          Display {
+            name "display1"
+            recognitionColors [
+              0.666667 0 0
+            ]
+          }
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.941176 0.941176 0.941176
+              baseColorMap ImageTexture {
+                url [
+                  "../istockphoto-695750612-612x612.jpg"
+                ]
+                repeatS FALSE
+                repeatT FALSE
+                filtering 1
+              }
+              metalness 0.1
+            }
+            geometry Box {
+              size 0.7 0.7 1
+            }
+          }
+          SliderJoint {
+            jointParameters JointParameters {
+              position -0.14
+              axis 0 1 0
+              maxStop 2
+            }
+            device [
+              PositionSensor {
+                name "door_pos1"
+              }
+              LinearMotor {
+                name "door1"
+                maxVelocity 0.5
+              }
+            ]
+            endPoint Solid {
+              translation 0.36 -0.09 -0.09
+              children [
+                Solid {
+                  translation 0 -0.21 0
+                  children [
+                    TouchSensor {
+                      name "close_door_touch_sensor1"
+                      boundingObject Box {
+                        size 0.01 0.04 0.8
+                      }
+                    }
+                    Shape {
+                      appearance PBRAppearance {
+                        baseColor 0 0 0
+                      }
+                      geometry Box {
+                        size 0.02 0.02 0.8
+                      }
+                    }
+                  ]
+                }
+                TouchSensor {
+                  name "door_touch_sensor1"
+                  boundingObject Box {
+                    size 0.02 0.41 0.82
+                  }
+                }
+                Shape {
+                  appearance ThreadMetalPlate {
+                    type "square"
+                    colorOverride 0.843137 0.768627 0.72549
+                    textureTransform TextureTransform {
+                    }
+                    IBLStrength 6
+                  }
+                  geometry Box {
+                    size 0.02 0.4 0.81
+                  }
+                }
+              ]
+              boundingObject Box {
+                size 0.02 0.39 0.81
+              }
+              recognitionColors [
+                0 0 0
+              ]
+            }
+          }
+        ]
+        name "solid(1)"
+      }
+    }
+  ]
+  name "robot1"
+  controller "my_controller"
+  supervisor TRUE
+}
+DEF floors Solid {
+  translation 0.33 -0.66 1.98
+  children [
+    Solid {
+      translation -0.2 0 1.03
+      children [
+        Shape {
+          appearance Appearance {
+            texture ImageTexture {
+              url [
+                "../floor.jpg"
+              ]
+            }
+          }
+          geometry Box {
+            size 0.6 0.6 0.01
+          }
+        }
+      ]
+      name "third_boundary"
+      boundingObject Shape {
+        geometry Box {
+          size 0.1 0.61 0.02
+        }
+      }
+    }
+    Solid {
+      translation 0.2 0 0.02
+      children [
+        RobocupSoccerBall {
+          translation 0 -0.16000000000000003 0.06999515975728654
+        }
+        Shape {
+          appearance Appearance {
+            texture ImageTexture {
+              url [
+                "../floor.jpg"
+              ]
+            }
+          }
+          geometry Box {
+            size 0.6 0.6 0.01
+          }
+        }
+      ]
+      name "second_boundary"
+      boundingObject Shape {
+        geometry Box {
+          size 0.1 0.6 0.02
+        }
+      }
+    }
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.301961 0.301961 0.301961
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.1 4
+      }
+    }
+    Solid {
+      translation 4.14026e-15 0 -0.99
+      rotation 0 1 0 4.692820414042842e-06
+      children [
+        FlowerPot {
+          translation 0 -0.2 0
+        }
+        Shape {
+          appearance Appearance {
+            texture ImageTexture {
+              url [
+                "../floor.jpg"
+              ]
+            }
+          }
+          geometry Box {
+            size 0.6 0.6 0.01
+          }
+        }
+      ]
+      name "first_boundary"
+      boundingObject Shape {
+        geometry Box {
+          size 0.1 0.6 0.03
+        }
+      }
+    }
+  ]
+}
+DEF door_opner Solid {
+  translation 0.7 0.34 1.99
+  children [
+    Solid {
+      translation 0 0 0.43
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.03
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject Box {
+        size 0.08 0.065 0.1
+      }
+    }
+    Solid {
+      translation 0 0 -0.45
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.03
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject Box {
+        size 0.08 0.065 0.1
+      }
+    }
+    Solid {
+      translation 0 0 -1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.03
+          }
+        }
+      ]
+      boundingObject Box {
+        size 0.08 0.065 0.1
+      }
+    }
+    Shape {
+      geometry Cylinder {
+        height 4
+        radius 0.01
+      }
+    }
+  ]
+  name "solid(1)"
+}
+DEF door_closer Solid {
+  translation 0.7 -0.34 1.99
+  children [
+    Solid {
+      translation 0 0 0.43
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.03
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject Box {
+        size 0.08 0.065 0.1
+      }
+    }
+    Solid {
+      translation 0 0 -0.45
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.03
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject Box {
+        size 0.08 0.065 0.1
+      }
+    }
+    Solid {
+      translation 0 0 -1.57
+      children [
+        Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.03
+          }
+        }
+      ]
+      boundingObject Box {
+        size 0.08 0.065 0.1
+      }
+    }
+    Shape {
+      geometry Cylinder {
+        height 4
+        radius 0.01
+      }
+    }
+  ]
+  name "solid(2)"
+}
+AdvertisingBoard {
+  translation -2 0 5.07
+  frontTexture [
+    "../CIMLAB.jpg"
+  ]
+  poleHeight 1
+}
+SquareManhole {
+  translation 0.37 0 -0.04
+  enableBoundingObject FALSE
+}
