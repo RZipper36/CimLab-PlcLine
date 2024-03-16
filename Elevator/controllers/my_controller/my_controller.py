@@ -495,9 +495,9 @@ class LedLight():
     def start_blinking(self):
         for i in range (4):
             GPIO.output(self.pin, GPIO.HIGH)
-            time.sleep(0.2)  # LED ON for 1 second
+            time.sleep(0.2)  
             GPIO.output(self.pin, GPIO.LOW)
-            time.sleep(0.2)  # LED OFF for 1 second
+            time.sleep(0.2)  
             
 
  ######################################################
