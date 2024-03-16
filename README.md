@@ -21,7 +21,7 @@ The code for CIM lab - PlcLine elevator project
 8. Use "q" to exit from controller. the simlation will not stop - use step 5 to stop it. 
 
 **Raspberry Pi use**
-1. Copt the controller code to your Raspberry Pi using a USB flash drive.
+1. Copט the controller code to your Raspberry Pi using a USB flash drive.
 2. Open a UNIX terminls from the Raspberry Pi.
 3. Use the "cd" command to change the directory to where the code is. Use the "ls -ltr" command to list the directory contents.
 4. Check the help menu by executing "python <code_name>.py --help".
