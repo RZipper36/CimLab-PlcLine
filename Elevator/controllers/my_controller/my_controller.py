@@ -457,7 +457,7 @@ class PhysicalElevatorController(ElevatorController):
         while True:
             if not GPIO.input(self.door_touch_sensor):
                 GPIO.output(self.door, GPIO.HIGH)
-                time.sleep(self.door_steps)  # Adjust as needed
+                time.sleep(self.door_steps)  
                 GPIO.output(self.door, GPIO.LOW)
                 return
             else:
